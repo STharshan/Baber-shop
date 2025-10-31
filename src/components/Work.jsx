@@ -43,8 +43,8 @@ const Work = () => {
         data-aos="fade-up"
         data-aos-delay="100"
       >
-        <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif mb-4 md:mb-6">
-          Our Work
+        <h1 className="text-4xl md:text-5xl  font-serif mb-4 md:mb-6">
+          Our <span className="text-yellow-400">Work</span>
         </h1>
         <p
           className="text-gray-400 text-base md:text-lg lg:text-xl max-w-3xl mx-auto px-4"
