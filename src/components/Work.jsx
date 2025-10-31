@@ -36,7 +36,7 @@ const Work = () => {
       : gallery.filter((item) => item.category === activeFilter);
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden">
+    <div id="work" className="min-h-screen bg-black text-white overflow-hidden">
       {/* Header Section */}
       <div
         className="px-4 py-12 md:py-16 lg:py-20 text-center"
@@ -68,7 +68,7 @@ const Work = () => {
             className={`px-6 py-3 rounded-lg text-sm md:text-base font-medium tracking-wider transition-all duration-300 ${
               activeFilter === filter
                 ? "bg-yellow-500 text-black"
-                : "text-white bg-zinc-800 "
+                : "text-white bg-zinc-800 hover:bg-zinc-500"
             }`}
           >
             {filter}

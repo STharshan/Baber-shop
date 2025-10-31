@@ -14,6 +14,7 @@ const HeroSection = () => {
 
   return (
     <section
+    id="#"
       className="relative w-full h-screen bg-cover bg-center flex items-center justify-center text-white overflow-hidden"
       style={{
         backgroundImage: "url('/hero.jpg')", // <-- Replace with your background image
@@ -67,12 +68,16 @@ const HeroSection = () => {
           data-aos="fade-up"
           data-aos-delay="1000"
         >
-          <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 px-8 rounded-md transition-all">
+          <a 
+            href="#contact"
+            className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 px-8 rounded-md transition-all">
             Book Appointment
-          </button>
-          <button className="border-2 border-yellow-400 hover:bg-yellow-400 hover:text-black text-white font-semibold py-3 px-8 rounded-md transition-all">
+          </a>
+          <a 
+            href="#service"
+            className="border-2 border-yellow-400 hover:bg-yellow-400 hover:text-black text-white font-semibold py-3 px-8 rounded-md transition-all">
             View Services
-          </button>
+          </a>
         </div>
       </div>
     </section>

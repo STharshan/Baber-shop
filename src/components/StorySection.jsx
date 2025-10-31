@@ -13,7 +13,7 @@ const StorySection = () => {
   }, []);
 
   return (
-    <section className="bg-black text-white py-20 px-6 md:px-12 lg:px-20 overflow-hidden">
+    <section id="about" className="bg-black text-white py-20 px-6 md:px-12 lg:px-20 overflow-hidden">
       {/* Heading */}
       <div
         className="text-center mb-12"

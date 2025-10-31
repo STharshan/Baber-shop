@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import emailjs from "emailjs-com";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -44,37 +46,53 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!validateForm()) return;
+    if (!validateForm()) {
+      toast.error("Please fill out all required fields correctly.", {
+        position: "top-right",
+        theme: "dark",
+      });
+      return;
+    }
 
-    // ✉️ Send email via EmailJS
     emailjs
       .send(
-        "service_404lxe7", // 🔹 Replace with your EmailJS service ID
-        "template_n0wdb9x", // 🔹 Replace with your template ID
+        "service_404lxe7", // your EmailJS service ID
+        "template_n0wdb9x", // your EmailJS template ID
         formData,
-        "tmUgtXKf_TwGrV1iE" // 🔹 Replace with your EmailJS public key
+        "tmUgtXKf_TwGrV1iE" // your EmailJS public key
       )
       .then(
         (response) => {
           console.log("SUCCESS!", response.status, response.text);
-          alert("Message sent successfully!");
+          toast.success("Message sent successfully!", {
+            position: "top-right",
+            theme: "dark",
+            autoClose: 3000,
+            hideProgressBar: false,
+          });
           setFormData({ name: "", email: "", phone: "", message: "" });
         },
         (err) => {
           console.error("FAILED...", err);
-          alert("Failed to send message. Try again later.");
+          toast.error("Failed to send message. Please try again later.", {
+            position: "top-right",
+            theme: "dark",
+          });
         }
       );
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div id="contact" className="min-h-screen scroll-m-5 bg-black text-white relative">
+      {/* ✅ Toast Container */}
+      <ToastContainer />
+
       <div className="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12 py-8 md:py-12 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16">
 
           {/* Left Side */}
           <div className="space-y-8 md:space-y-10 lg:space-y-12">
-            {/* Visit Us Section */}
+            {/* Visit Us */}
             <div
               data-aos="fade-right"
               className="shadow-lg p-6 md:p-8 lg:p-10 bg-[#0d0d0d] rounded-md cursor-pointer"
@@ -90,6 +108,7 @@ const Contact = () => {
               <a
                 href="https://maps.app.goo.gl/J1iB5VohHQsbMenr9"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="text-white text-base md:text-lg lg:text-xl space-y-1 md:space-y-2 hover:text-yellow-300 transition-colors block"
               >
                 <p>32 Pelham Street</p>
@@ -149,7 +168,7 @@ const Contact = () => {
             </div>
 
             <div className="space-y-5 md:space-y-6">
-              {/* Name Field */}
+              {/* Name */}
               <div data-aos="fade-up" data-aos-delay="250">
                 <input
                   type="text"
@@ -157,12 +176,12 @@ const Contact = () => {
                   placeholder="Name *"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full bg-transparent border border-gray-700 rounded-lg text-white placeholder-gray-500 px-5 md:px-6 py-4 md:py-5 text-base md:text-lg focus:outline-none focus:border-yellow-400 transition-colors"
+                  className="w-full bg-transparent border border-gray-700 rounded-lg text-white placeholder-gray-500 px-5 py-3 text-base md:text-lg focus:outline-none focus:border-yellow-400 transition-colors"
                 />
                 {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
               </div>
 
-              {/* Email & Phone */}
+              {/* Email + Phone */}
               <div
                 className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6"
                 data-aos="fade-up"
@@ -175,7 +194,7 @@ const Contact = () => {
                     placeholder="Email *"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full bg-transparent border border-gray-700 rounded-lg text-white placeholder-gray-500 px-5 md:px-6 py-4 md:py-5 text-base md:text-lg focus:outline-none focus:border-yellow-400 transition-colors"
+                    className="w-full bg-transparent border border-gray-700 rounded-lg text-white placeholder-gray-500 px-5 py-3 text-base md:text-lg focus:outline-none focus:border-yellow-400 transition-colors"
                   />
                   {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
                 </div>
@@ -187,7 +206,7 @@ const Contact = () => {
                     placeholder="Phone *"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full bg-transparent border border-gray-700 rounded-lg text-white placeholder-gray-500 px-5 md:px-6 py-4 md:py-5 text-base md:text-lg focus:outline-none focus:border-yellow-400 transition-colors"
+                    className="w-full bg-transparent border border-gray-700 rounded-lg text-white placeholder-gray-500 px-5 py-3 text-base md:text-lg focus:outline-none focus:border-yellow-400 transition-colors"
                   />
                   {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
                 </div>
@@ -201,7 +220,7 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   rows="6"
-                  className="w-full bg-transparent border border-gray-700 text-white rounded-lg placeholder-gray-500 px-5 md:px-6 py-4 md:py-5 text-base md:text-lg focus:outline-none focus:border-yellow-400 transition-colors resize-none"
+                  className="w-full bg-transparent border border-gray-700 text-white rounded-lg placeholder-gray-500 px-5 py-3 text-base md:text-lg focus:outline-none focus:border-yellow-400 transition-colors resize-none"
                 ></textarea>
                 {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
               </div>

@@ -12,7 +12,8 @@ const Navbar = () => {
     const navLinks = [
         { name: "Home", href: "/#" },
         { name: "About Us", href: "/#about" },
-        { name: "Services", href: "/#services" },
+        { name: "Services", href: "/#service" },
+        { name: "Our Work", href: "/#work" },
         { name: "Contact", href: "/#contact" },
     ];
 
@@ -32,14 +33,14 @@ const Navbar = () => {
                 {/* Desktop Menu */}
                 <div className="hidden lg:flex items-center gap-8">
                     {navLinks.map((item) => (
-                        <a
+                        <HashLink
                             key={item.name}
                             smooth
-                            href={item.href}
+                            to={item.href}
                             className="flex items-center gap-1 font-semibold text-white hover:text-yellow-400 transition-colors"
                         >
                             {item.name}
-                        </a>
+                        </HashLink>
                     ))}
                 </div>
 
@@ -47,7 +48,7 @@ const Navbar = () => {
                 <div className="hidden lg:flex items-center">
                     <a
                         smooth
-                        href="/#booking"
+                        href="#contact"
                         className="bg-yellow-400 text-white font-semibold px-5 py-2 rounded-full hover:bg-yellow-600 transition-all duration-300"
                     >
                         Book Now
@@ -58,7 +59,7 @@ const Navbar = () => {
                 <div className="flex items-center gap-2 lg:hidden">
                     <a
                         smooth
-                        href="/#booking"
+                        href="#contact"
                         className="bg-yellow-400 px-4 py-2 rounded-full text-sm font-semibold hover:bg-yellow-600 transition-all"
                     >
                         Book Now
@@ -78,15 +79,15 @@ const Navbar = () => {
             {menuOpen && (
                 <div className="lg:hidden mt-4 bg-[#222] rounded-lg p-4 space-y-3">
                     {navLinks.map((item) => (
-                        <a
+                        <HashLink
                             key={item.name}
                             smooth
-                            href={item.href}
+                            to={item.href}
                             onClick={() => setMenuOpen(false)}
                             className="block py-2 text-gray-200 hover:text-yellow-400 border-b border-gray-700 last:border-0 transition-colors"
                         >
                             {item.name}
-                        </a>
+                        </HashLink>
                     ))}
                 </div>
             )}

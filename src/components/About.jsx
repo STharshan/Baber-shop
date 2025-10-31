@@ -67,13 +67,14 @@ const About = () => {
           every Monday through Wednesday
         </p>
 
-        <button
+        <a
+          href="#contact"
           className="mt-8 bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-8 rounded-md text-sm md:text-base transition-all duration-300"
           data-aos="flip-up"
           data-aos-delay="1000"
         >
           BOOK YOUR APPOINTMENT
-        </button>
+        </a>
       </div>
     </section>
   );

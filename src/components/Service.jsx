@@ -7,9 +7,9 @@ import "aos/dist/aos.css";
 const ServicesSection = () => {
   useEffect(() => {
     AOS.init({
-      duration: 1000, // animation duration
+      duration: 1000,
       easing: "ease-out-cubic",
-      once: true, // animate once
+      once: true,
     });
   }, []);
 
@@ -52,7 +52,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="bg-black text-white py-20 px-6 md:px-12 lg:px-20 overflow-hidden">
+    <section id="service" className="bg-black text-white py-20 px-6 md:px-12 lg:px-20 overflow-hidden">
       {/* Heading */}
       <div className="text-center mb-14" data-aos="fade-up">
         <h2 className="text-3xl md:text-4xl font-extrabold mb-3">
@@ -63,35 +63,53 @@ const ServicesSection = () => {
         </p>
       </div>
 
-      {/* Service Cards */}
-      <div
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto justify-items-center"
-        data-aos="fade-up"
-        data-aos-delay="200"
-      >
-        {services.map((service, index) => (
-          <div
-            key={index}
-            className="bg-[#1a1a1a] border border-gray-500 shadow-md hover:scale-105 active:scale-105 hover:shadow-yellow-400 transition-all duration-300 rounded-md p-8 text-center"
-            data-aos="zoom-in-up"
-            data-aos-delay={200 + index * 150} // stagger animation
-          >
-            <div className="flex justify-center">{service.icon}</div>
-            <h3 className="text-xl font-semibold mt-2 mb-3">
-              {service.title}
-            </h3>
-            <p className="text-gray-400 text-sm mb-4">{service.description}</p>
-            <p className="text-yellow-400 font-semibold">{service.price}</p>
-          </div>
-        ))}
+      {/* ✅ Force perfect 3 + 2 centered grid */}
+      <div className="max-w-6xl mx-auto flex flex-col gap-10" data-aos="fade-up">
+        {/* Row 1 (3 items) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
+          {services.slice(0, 3).map((service, index) => (
+            <div
+              key={index}
+              className="bg-[#1a1a1a] shadow-lg hover:scale-105 hover:shadow-yellow-400 active:shadow-yellow-400 transition-all duration-300 rounded-md p-8 text-center w-full md:w-[90%]"
+              data-aos="zoom-in-up"
+              data-aos-delay={200 + index * 150}
+            >
+              <div className="flex justify-center">{service.icon}</div>
+              <h3 className="text-xl font-semibold mt-2 mb-3">{service.title}</h3>
+              <p className="text-gray-400 text-sm mb-4">{service.description}</p>
+              <p className="text-yellow-400 font-semibold">{service.price}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Row 2 (2 centered items) */}
+        <div className="flex justify-center gap-8 flex-wrap">
+          {services.slice(3).map((service, index) => (
+            <div
+              key={index}
+              className="bg-[#1a1a1a] shadow-lg hover:scale-105 hover:shadow-yellow-400 active:shadow-yellow-400 transition-all duration-300 rounded-md p-8 text-center w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.333%-1rem)]"
+              data-aos="zoom-in-up"
+              data-aos-delay={700 + index * 150}
+            >
+              <div className="flex justify-center">{service.icon}</div>
+              <h3 className="text-xl font-semibold mt-2 mb-3">{service.title}</h3>
+              <p className="text-gray-400 text-sm mb-4">{service.description}</p>
+              <p className="text-yellow-400 font-semibold">{service.price}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* Bottom Button */}
-      <div className="text-center mt-14" data-aos="fade-up" data-aos-delay="800">
+      {/* Button */}
+      {/* <div
+        className="text-center mt-14"
+        data-aos="fade-up"
+        data-aos-delay="1000"
+      >
         <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 px-8 rounded-md text-sm md:text-base transition-all duration-300">
           View All Services & Pricing
         </button>
-      </div>
+      </div> */}
     </section>
   );
 };
