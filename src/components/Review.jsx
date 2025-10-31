@@ -1,5 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const testimonials = [
   {
@@ -57,8 +59,17 @@ Definitely recommend them`,
   },
 ];
 
+
 export default function Testimonials() {
   const scrollRef = useRef(null);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: true,
+    });
+  }, []);
 
   const scroll = (direction) => {
     const { current } = scrollRef;
@@ -72,10 +83,14 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-12 bg-black transition-colors duration-500 relative">
+    <section className="py-12 bg-black relative transition-colors duration-500">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div
+          className="text-center mb-12"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
           <p className="text-yellow-400 font-semibold tracking-widest uppercase text-lg">
             Our Testimonials
           </p>
@@ -88,6 +103,8 @@ export default function Testimonials() {
         <button
           onClick={() => scroll("left")}
           className="absolute left-4 top-1/2 mt-20 -translate-y-1/2 bg-yellow-400 p-3 rounded-full shadow-md hover:bg-yellow-500 hover:text-white transition z-20 group"
+          data-aos="fade-right"
+          data-aos-delay="200"
         >
           <FaChevronLeft
             className="transition-transform duration-300 group-hover:-translate-x-1"
@@ -98,6 +115,8 @@ export default function Testimonials() {
         <button
           onClick={() => scroll("right")}
           className="absolute right-4 top-1/2 mt-20 -translate-y-1/2 bg-yellow-400 p-3 rounded-full shadow-md hover:bg-yellow-500 hover:text-white transition z-20 group"
+          data-aos="fade-left"
+          data-aos-delay="200"
         >
           <FaChevronRight
             className="transition-transform duration-300 group-hover:translate-x-1"
@@ -113,17 +132,15 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="shrink-0 w-72 sm:w-80 md:w-96 bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-yellow-400 active:shadow-yellow-400 relative snap-start"
+              className="shrink-0 w-72 sm:w-80 md:w-96 bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-yellow-400 active:shadow-yellow-400 transition-all duration-300 relative snap-start"
+              data-aos="fade-up"
+              data-aos-delay={100 * (index % 5)} // Staggered animation
             >
-              {/* Profile Section */}
               <div className="relative pt-6 px-6 pb-6">
                 <div className="flex items-center gap-4 mb-6">
-                  {/* Circle with First Letter */}
                   <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-dashed border-white bg-yellow-400 flex items-center justify-center text-black font-extrabold text-3xl uppercase">
                     {testimonial.name.charAt(0)}
                   </div>
-
-                  {/* Name & Role */}
                   <div className="flex-1 bg-gray-100 py-3 px-4 rounded-lg">
                     <h3 className="text-lg font-bold text-gray-900">
                       {testimonial.name}
@@ -132,7 +149,6 @@ export default function Testimonials() {
                   </div>
                 </div>
 
-                {/* Stars */}
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <span key={i} className="text-yellow-400 text-lg">
@@ -141,7 +157,6 @@ export default function Testimonials() {
                   ))}
                 </div>
 
-                {/* Text */}
                 <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
                   {testimonial.text}
                 </p>
