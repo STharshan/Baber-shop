@@ -19,7 +19,7 @@ const About = () => {
         className="absolute inset-0 opacity-10"
         style={{
           backgroundImage:
-            "repeating-linear-gradient(135deg, #d4c23b 0px, #d4c23b 2px, transparent 2px, transparent 40px)",
+            "repeating-linear-linear(135deg, #d4c23b 0px, #d4c23b 2px, transparent 2px, transparent 40px)",
         }}
         data-aos="fade-in"
       ></div>
