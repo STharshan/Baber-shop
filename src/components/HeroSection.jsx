@@ -70,6 +70,7 @@ const HeroSection = () => {
         >
           <a 
             href="https://booksy.com/widget-2021/index.html?id=3753&lang=en&country=gb&mode=dialog&theme=default&uniqueId=38dd7b502e"
+            target="_blank"
             className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 px-8 rounded-md transition-all">
             Book Appointment
           </a>
