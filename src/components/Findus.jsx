@@ -41,7 +41,7 @@ export default function FindUs() {
           data-aos-delay="400"
         >
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d300.4641670963413!2d-1.1466017194569342!3d52.95358093059182!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4879c3d60f24bea5%3A0x70cf26036b4bb3cc!2sTwenty%20eight!5e0!3m2!1sen!2slk!4v1761923635010!5m2!1sen!2slk"
+            src="https://www.google.com/maps/embed?pb=!4v1628763476266!6m8!1m7!1sCAoSLEFGMVFpcE9qdVEwbFlXQ2hYNHZlSnZkOHhKbDhmRDlBT2ZSdGJob195QU1R!2m2!1d52.9535701204796!2d-1.146184900331718!3f183.14306661740167!4f-0.33547023943884824!5f0.7820865974627469"
             width="100%"
             height="100%"
             allowFullScreen

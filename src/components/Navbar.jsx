@@ -48,7 +48,8 @@ const Navbar = () => {
                 <div className="hidden lg:flex items-center">
                     <a
                         smooth
-                        href="#contact"
+                        target="_blank"
+                        href="https://booksy.com/widget-2021/index.html?id=3753&lang=en&country=gb&mode=dialog&theme=default&uniqueId=38dd7b502e"
                         className="bg-yellow-400 text-white font-semibold px-5 py-2 rounded-full hover:bg-yellow-600 transition-all duration-300"
                     >
                         Book Now
@@ -59,7 +60,8 @@ const Navbar = () => {
                 <div className="flex items-center gap-2 lg:hidden">
                     <a
                         smooth
-                        href="#contact"
+                        target="_blank"
+                        href="https://booksy.com/widget-2021/index.html?id=3753&lang=en&country=gb&mode=dialog&theme=default&uniqueId=38dd7b502e"
                         className="bg-yellow-400 px-4 py-2 rounded-full text-sm font-semibold hover:bg-yellow-600 transition-all"
                     >
                         Book Now

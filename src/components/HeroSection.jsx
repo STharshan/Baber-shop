@@ -32,7 +32,7 @@ const HeroSection = () => {
         <img
           src="/logo.png" // <-- Replace with your logo file
           alt="Seven Star Logo"
-          className="mx-auto mb-6 w-48 md:w-64"
+          className="mx-auto mb-6 mt-5 w-48"
           data-aos="zoom-in"
           data-aos-delay="200"
         />
