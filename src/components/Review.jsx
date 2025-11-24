@@ -1,3 +1,4 @@
+"use client";
 import React, { useRef, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import AOS from "aos";
@@ -59,7 +60,6 @@ Definitely recommend them`,
   },
 ];
 
-
 export default function Testimonials() {
   const scrollRef = useRef(null);
 
@@ -83,8 +83,9 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-12 bg-black relative transition-colors duration-500">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 bg-black relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header */}
         <div
           className="text-center mb-12"
@@ -102,9 +103,7 @@ export default function Testimonials() {
         {/* Scroll Buttons */}
         <button
           onClick={() => scroll("left")}
-          className="absolute left-4 top-1/2 mt-20 -translate-y-1/2 bg-yellow-400 p-3 rounded-full shadow-md hover:bg-yellow-500 hover:text-white transition z-20 group"
-          data-aos="fade-right"
-          data-aos-delay="200"
+          className="absolute left-4 top-[42%] mt-20 -translate-y-1/2 bg-yellow-400 p-3 rounded-full shadow-md hover:bg-yellow-500 hover:text-white transition z-20 group"
         >
           <FaChevronLeft
             className="transition-transform duration-300 group-hover:-translate-x-1"
@@ -114,9 +113,7 @@ export default function Testimonials() {
 
         <button
           onClick={() => scroll("right")}
-          className="absolute right-4 top-1/2 mt-20 -translate-y-1/2 bg-yellow-400 p-3 rounded-full shadow-md hover:bg-yellow-500 hover:text-white transition z-20 group"
-          data-aos="fade-left"
-          data-aos-delay="200"
+          className="absolute right-4 top-[42%] mt-20 -translate-y-1/2 bg-yellow-400 p-3 rounded-full shadow-md hover:bg-yellow-500 hover:text-white transition z-20 group"
         >
           <FaChevronRight
             className="transition-transform duration-300 group-hover:translate-x-1"
@@ -124,21 +121,28 @@ export default function Testimonials() {
           />
         </button>
 
-        {/* Scroll Container */}
+        {/* Responsive Scroll Container */}
         <div
           ref={scrollRef}
-          className="flex space-x-6 overflow-x-auto scroll-smooth snap-x snap-mandatory px-2 py-8 hide-scrollbar"
+          className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory gap-6 px-2 py-8 hide-scrollbar"
         >
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="shrink-0 w-72 sm:w-80 md:w-96 bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-yellow-400 active:shadow-yellow-400 transition-all duration-300 relative snap-start"
+              className="
+              shrink-0  
+              w-[99%]
+              sm:w-[60%]
+              md:w-[45%] 
+              lg:w-[32%]
+              bg-white rounded-2xl shadow-lg hover:shadow-yellow-400 transition-all duration-300 snap-start
+              "
               data-aos="fade-up"
-              data-aos-delay={100 * (index % 5)} // Staggered animation
+              data-aos-delay={100 * (index % 5)}
             >
               <div className="relative pt-6 px-6 pb-6">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-dashed border-white bg-yellow-400 flex items-center justify-center text-black font-extrabold text-3xl uppercase">
+                  <div className="w-16 h-16 rounded-full border-2 border-dashed border-white bg-yellow-400 flex items-center justify-center text-black font-extrabold text-3xl uppercase">
                     {testimonial.name.charAt(0)}
                   </div>
                   <div className="flex-1 bg-gray-100 py-3 px-4 rounded-lg">
@@ -151,9 +155,7 @@ export default function Testimonials() {
 
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-yellow-400 text-lg">
-                      ★
-                    </span>
+                    <span key={i} className="text-yellow-400 text-lg">★</span>
                   ))}
                 </div>
 
