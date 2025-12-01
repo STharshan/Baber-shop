@@ -109,7 +109,7 @@ const Contact = () => {
                 href="https://maps.app.goo.gl/J1iB5VohHQsbMenr9"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white text-base md:text-lg lg:text-xl space-y-1 md:space-y-2 hover:text-yellow-300 transition-colors block"
+                className="text-white  text-base md:text-lg lg:text-xl space-y-1 md:space-y-2 hover:text-yellow-300 transition-colors block"
               >
                 <p>32 Pelham Street</p>
                 <p>Nottingham</p>
@@ -118,7 +118,7 @@ const Contact = () => {
 
               <a
                 href="tel:01159586628"
-                className="text-yellow-400 text-xl md:text-2xl mt-10 lg:text-3xl font-bold hover:text-yellow-300 transition-colors inline-block"
+                className="text-yellow-400 font-sans text-xl md:text-2xl mt-10 lg:text-3xl font-bold hover:text-yellow-300 transition-colors inline-block"
               >
                 0115 958 6628
               </a>

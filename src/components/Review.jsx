@@ -32,13 +32,6 @@ So glad I had it bleached, it’ll take me there more often!`,
     text: "Paolo did a wonderful job cutting my hair. He is very knowledgeable on mullet style and gave me great tips. It was a welcoming space and I felt at ease. Very happy with my haircut!",
   },
   {
-    name: "Sherryl Edwards",
-    role: "Partner",
-    image: "https://i.pravatar.cc/150?img=4",
-    text: `Excellent service from RS Mobile Services. It’s great to have someone come to the house while I was at work instead of having to book in at a garage.
-Definitely recommend them`,
-  },
-  {
     name: "Rob Fishlock",
     image: "https://i.pravatar.cc/150?img=4",
     text: "Paulo the Barber is the real deal! I got my haircut from Paulo and I couldn’t be happier. From the moment I sat in the chair, he was professional, attentive, and really listened to what I wanted. He took his time, paid attention to every detail, and the final result was absolutely on point. Easily one of the best haircuts I’ve had in a long time. If you’re looking for someone who knows their craft and delivers consistently great results, Paulo’s your guy. Highly recommend!",
