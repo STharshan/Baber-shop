@@ -226,13 +226,14 @@ const Contact = () => {
               </div>
 
               {/* Submit Button */}
-              <div data-aos="zoom-in" data-aos-delay="400">
+              <div data-aos="zoom-in" data-aos-delay="400" className="flex items-center ">
                 <button
                   type="submit"
-                  className="bg-yellow-400 text-black font-bold rounded-lg text-base md:text-lg px-10 py-3 hover:bg-yellow-500 transition-colors cursor-pointer"
+                  className="bg-yellow-400 text-black font-bold rounded-lg text-base md:text-lg px-10 py-0.5 hover:bg-yellow-500 transition-colors cursor-pointer"
                 >
                   SEND MESSAGE
                 </button>
+                  <p className="text-xs text-center dark:text-gray-300">By submitting this form, you agree to us processing your details to respond to your enquiry. Your information is handled securely and in line with our Privacy Policy.</p>
               </div>
             </div>
           </form>
