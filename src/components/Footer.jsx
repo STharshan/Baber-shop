@@ -79,9 +79,9 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors duration-300"
                 >
-                  Twenty Eight Barbers <br/>
-                  32 Pelham Street<br/>
-                  Nottingham<br/>
+                  Twenty Eight Barbers <br />
+                  32 Pelham Street<br />
+                  Nottingham<br />
                   NG1 2EG
                 </a>
               </li>

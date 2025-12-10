@@ -5,7 +5,7 @@ import ServicesSection from '../components/Service'
 import StorySection from '../components/StorySection'
 import Work from '../components/Work'
 import Contact from '../components/Contact'
-import FindUs from '../components/Findus'
+import FindUs from '../components/FindUs'
 import Testimonials from '../components/Review'
 
 const Home = () => {

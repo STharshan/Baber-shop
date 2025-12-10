@@ -1,8 +1,6 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 const testimonials = [
   {
@@ -55,14 +53,6 @@ So glad I had it bleached, it’ll take me there more often!`,
 
 export default function Testimonials() {
   const scrollRef = useRef(null);
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      easing: "ease-in-out",
-      once: true,
-    });
-  }, []);
 
   const scroll = (direction) => {
     const { current } = scrollRef;

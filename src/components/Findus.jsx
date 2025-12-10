@@ -1,16 +1,7 @@
 "use client";
-import React, { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React from "react";
 
 export default function FindUs() {
-  useEffect(() => {
-    AOS.init({
-      duration: 900, // Animation duration in ms
-      easing: "ease-out-cubic", // Smooth easing
-      once: false, // Trigger every scroll into view
-    });
-  }, []);
 
   return (
     <section

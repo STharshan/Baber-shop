@@ -6,8 +6,20 @@ import PrivacyPolicy from "./components/PrivacyPolicy";
 import GDPRConsent from "./components/GDPRButton";
 import ScrollToTop from "./components/ScrollToTop";
 import Home from "./page/Home";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
+
+    useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: "ease-out-cubic",
+    });
+  }, []);
+
   return (
     <Router>
       <ScrollToTop />

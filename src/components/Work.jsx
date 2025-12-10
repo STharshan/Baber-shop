@@ -1,17 +1,7 @@
-import React, { useState, useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React, { useState } from "react";
 
 const Work = () => {
   const [activeFilter, setActiveFilter] = useState("ALL");
-
-  useEffect(() => {
-    AOS.init({
-      duration: 900,
-      easing: "ease-in-out",
-      once: true, // only animate once
-    });
-  }, []);
 
   const filters = ["ALL", "MEN'S CUT", "WOMEN'S STYLE"];
 
@@ -88,6 +78,7 @@ const Work = () => {
             >
               <img
                 src={item.src}
+                loading="lazy"
                 alt={item.alt}
                 className="w-full h-64 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
               />

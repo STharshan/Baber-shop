@@ -1,7 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -16,14 +14,7 @@ const Contact = () => {
 
   const [errors, setErrors] = useState({});
 
-  useEffect(() => {
-    AOS.init({
-      duration: 900,
-      easing: "ease-out-cubic",
-      once: false,
-    });
-  }, []);
-
+  // Form validation
   const validateForm = () => {
     const newErrors = {};
     if (!formData.name.trim()) newErrors.name = "Name is required";
@@ -38,12 +29,10 @@ const Contact = () => {
   };
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!validateForm()) {
@@ -56,10 +45,10 @@ const Contact = () => {
 
     emailjs
       .send(
-        "service_404lxe7", // your EmailJS service ID
-        "template_n0wdb9x", // your EmailJS template ID
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         formData,
-        "tmUgtXKf_TwGrV1iE" // your EmailJS public key
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
       .then(
         (response) => {
@@ -84,12 +73,10 @@ const Contact = () => {
 
   return (
     <div id="contact" className="min-h-screen scroll-m-5 bg-black text-white relative">
-      {/* ✅ Toast Container */}
       <ToastContainer />
 
       <div className="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12 py-8 md:py-12 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16">
-
           {/* Left Side */}
           <div className="space-y-8 md:space-y-10 lg:space-y-12">
             {/* Visit Us */}
@@ -100,22 +87,19 @@ const Contact = () => {
               <h2 className="text-yellow-400 text-2xl md:text-3xl lg:text-4xl font-bold mb-6 md:mb-8">
                 VISIT US
               </h2>
-
               <h3 className="text-white text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6">
                 Twenty Eight Barbers
               </h3>
-
               <a
                 href="https://maps.app.goo.gl/J1iB5VohHQsbMenr9"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white  text-base md:text-lg lg:text-xl space-y-1 md:space-y-2 hover:text-yellow-300 transition-colors block"
+                className="text-white text-base md:text-lg lg:text-xl space-y-1 md:space-y-2 hover:text-yellow-300 transition-colors block"
               >
                 <p>32 Pelham Street</p>
                 <p>Nottingham</p>
                 <p>NG1 2EG</p>
               </a>
-
               <a
                 href="tel:01159586628"
                 className="text-yellow-400 font-sans text-xl md:text-2xl mt-10 lg:text-3xl font-bold hover:text-yellow-300 transition-colors inline-block"
@@ -227,11 +211,7 @@ const Contact = () => {
 
               {/* Submit Button */}
               <div data-aos="zoom-in" data-aos-delay="400">
-                <div
-                  data-aos="zoom-in"
-                  data-aos-delay="400"
-                  className="flex justify-center"
-                >
+                <div className="flex justify-center">
                   <button
                     type="submit"
                     className="bg-yellow-400 text-black font-bold rounded-lg text-base md:text-lg px-10 py-2 hover:bg-yellow-500 transition-colors cursor-pointer"
@@ -239,7 +219,9 @@ const Contact = () => {
                     SEND MESSAGE
                   </button>
                 </div>
-                <p className="text-xs mt-5 text-center dark:text-gray-300">By submitting this form, you agree to us processing your details to respond to your enquiry. Your information is handled securely and in line with our Privacy Policy.</p>
+                <p className="text-xs mt-5 text-center dark:text-gray-300">
+                  By submitting this form, you agree to us processing your details to respond to your enquiry. Your information is handled securely and in line with our Privacy Policy.
+                </p>
               </div>
             </div>
           </form>
